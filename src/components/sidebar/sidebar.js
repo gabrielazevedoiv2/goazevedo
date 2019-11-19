@@ -7,7 +7,7 @@ import BrushIcon from '@material-ui/icons/Brush';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import KeyBoardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import KeyBoardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
-import FacebookSVG from '../../imgs/facebook-square-brands.svg';
+import GitHubIcon from '../../imgs/GitHub-Mark-64px.png';
 import LinkedInSVG from '../../imgs/linkedin-brands.svg';
 import image from '../../imgs/gabs.jpg';
 import { connect } from 'react-redux';
@@ -28,13 +28,13 @@ const links = [{
 }];
 
 const socialLinks = [{
-    text: 'Facebook',
-    icon: FacebookSVG,
-    link: ''
+    text: 'GitHub',
+    icon: GitHubIcon,
+    link: 'https://github.com/gabrielazevedoiv2'
 }, {
     text: 'LinkedIn',
     icon: LinkedInSVG,
-    link: ''
+    link: 'https://www.linkedin.com/in/goazevedo/'
 }]
 
 const useStyles = {
@@ -125,29 +125,25 @@ class SideBar extends React.Component {
         return (
             <div>
                 <Drawer
-                    className={this.props.sidebarToggle ? this.props.classes.drawerCollapsed : this.props.classes.drawer}
+                    className={this.props.classes.drawer}
                     variant="permanent"
                     classes={{
-                        paper: this.props.sidebarToggle ? this.props.classes.drawerPaperCollapsed : this.props.classes.drawerPaper,
+                        paper: this.props.classes.drawerPaper,
                     }}
                     anchor="left"
                 >
                     <div className={this.props.classes.menuholder}>
-                        <div className={this.props.classes.titleholder} style={{display: this.props.sidebarToggle ? 'none' : 'block'}}>
+                        <div className={this.props.classes.titleholder}>
                             <Typography className={this.props.classes.title} variant={'h5'}>Gabriel Azevedo</Typography>
                             <Typography className={this.props.classes.title} variant={'p'}>FullStack Developer</Typography>
                         </div>
-                        <KeyBoardArrowLeftIcon onClick={() => this.props.toggleSidebar()}></KeyBoardArrowLeftIcon>
-                        <Fab color="primary" aria-label="add" className={this.props.sidebarToggle ? this.props.classes.fabCollapsed : this.props.classes.fab}>
+                        <Fab color="primary" aria-label="add" className={this.props.classes.fab}>
                             <img className={this.props.classes.img} src={image}></img>
                         </Fab>
                         <List className={this.props.classes.list}>
                             {links.map((item, index) => (
                                 <ListItem button key={index} className={this.props.classes.listitem}>
-                                    <ListItemIcon style={{display: this.props.sidebarToggle ? 'flex': 'none', justifyContent: 'center', color: 'black'}}>
-                                        {item.icon}
-                                    </ListItemIcon> 
-                                    <ListItemText style={{display: !this.props.sidebarToggle ? 'flex': 'none'}} className={this.props.classes.listtext} primary={item.text} />
+                                    <ListItemText className={this.props.classes.listtext} primary={item.text} />
                                 </ListItem>
                             ))}
                         </List>
@@ -156,13 +152,13 @@ class SideBar extends React.Component {
                         </div>
                         <List className={this.props.classes.list}>
                             {socialLinks.map((item, index) => (
-                                <ListItem button key={index} className={this.props.classes.listitem} style={{height: '60px'}}>
+                                <ListItem button key={index} className={this.props.classes.listitem} style={{height: '60px'}} onClick={() => window.open(item.link)}>
                                     <img className={this.props.classes.brands} src={item.icon}></img>
                                 </ListItem>
                             ))}
                         </List>
                     </div>
-                    <Box className={this.props.classes.bottom} style={{display: this.props.sidebarToggle ? 'none' : 'block'}}>
+                    <Box className={this.props.classes.bottom}>
                         {"Gabriel Azevedo 2019"}
                     </Box>
                 </Drawer>
