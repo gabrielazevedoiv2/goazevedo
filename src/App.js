@@ -10,6 +10,9 @@ import CustomAppBar from './components/appbar/appbar';
 import MainPage from './pages/main';
 import { Grid, Container } from '@material-ui/core';
 import SideBar from './components/sidebar/sidebar';
+import ToolsPage from './pages/tools';
+import LabsPage from './pages/labs';
+import BlogsPage from './pages/blog';
 
 const appStore = createStore(learningsReducer);
 
@@ -26,10 +29,13 @@ function App() {
       <ThemeProvider theme={theme}>
         <Provider store={appStore}>
           <div className={classes.layout}>
-            <SideBar title={"You just landed"}></SideBar>
             <Router>
+              <SideBar title={"You just landed"}></SideBar>
               <Container>
                 <Route path="/" exact component={MainPage}></Route>   
+                <Route path="/tools" exact component={ToolsPage}></Route>   
+                <Route path="/lab" exact component={LabsPage}></Route>   
+                <Route path="/blog" exact component={BlogsPage}></Route>   
               </Container>
             </Router>
           </div>

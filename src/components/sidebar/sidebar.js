@@ -11,19 +11,24 @@ import GitHubIcon from '../../imgs/GitHub-Mark-64px.png';
 import LinkedInSVG from '../../imgs/linkedin-brands.svg';
 import image from '../../imgs/gabs.jpg';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { toggleSidebar } from '../../redux/actions';
 
 const links = [{
     text: 'About',
+    path: '/',
     icon: <InfoIcon></InfoIcon>
 }, {
     text: 'Tools',
+    path: '/tools',
     icon: <BuildIcon></BuildIcon>
 }, {
     text: 'Lab',
+    path: '/lab',
     icon: <BrushIcon></BrushIcon>
 }, {
     text: 'Blog',
+    path: '/blog',
     icon: <DashboardIcon></DashboardIcon>
 }];
 
@@ -142,9 +147,11 @@ class SideBar extends React.Component {
                         </Fab>
                         <List className={this.props.classes.list}>
                             {links.map((item, index) => (
-                                <ListItem button key={index} className={this.props.classes.listitem}>
-                                    <ListItemText className={this.props.classes.listtext} primary={item.text} />
-                                </ListItem>
+                                <Link to={item.path}>
+                                    <ListItem button key={index} className={this.props.classes.listitem}>
+                                        <ListItemText className={this.props.classes.listtext} primary={item.text} />
+                                    </ListItem>
+                                </Link>
                             ))}
                         </List>
                         <div style={{width: '100%'}}>
