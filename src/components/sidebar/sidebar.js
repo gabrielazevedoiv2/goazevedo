@@ -5,6 +5,7 @@ import InfoIcon from '@material-ui/icons/Info';
 import BuildIcon from '@material-ui/icons/Build';
 import BrushIcon from '@material-ui/icons/Brush';
 import DashboardIcon from '@material-ui/icons/Dashboard';
+import GamesIcon from '@material-ui/icons/Games';
 import KeyBoardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import KeyBoardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import GitHubIcon from '../../imgs/GitHub-Mark-64px.png';
@@ -22,6 +23,10 @@ const links = [{
     text: 'Tools',
     path: '/tools',
     icon: <BuildIcon></BuildIcon>
+}, {
+    text: 'Games',
+    path: '/games',
+    icon: <GamesIcon></GamesIcon>
 }, {
     text: 'Lab',
     path: '/lab',

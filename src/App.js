@@ -13,6 +13,9 @@ import SideBar from './components/sidebar/sidebar';
 import ToolsPage from './pages/tools';
 import LabsPage from './pages/labs';
 import BlogsPage from './pages/blog';
+import GamesPage from './pages/games';
+import CreepDodgePage from './pages/games/creep_dodge';
+import CAPage from './pages/labs/ca';
 
 const appStore = createStore(learningsReducer);
 
@@ -32,10 +35,13 @@ function App() {
             <Router>
               <SideBar title={"You just landed"}></SideBar>
               <Container>
-                <Route path="/" exact component={MainPage}></Route>   
-                <Route path="/tools" exact component={ToolsPage}></Route>   
-                <Route path="/lab" exact component={LabsPage}></Route>   
-                <Route path="/blog" exact component={BlogsPage}></Route>   
+                <Route path="/" exact component={MainPage}></Route>
+                <Route path="/tools" exact component={ToolsPage}></Route>
+                <Route path="/lab" exact component={LabsPage}></Route>
+                <Route path="/games" exact component={GamesPage}></Route>
+                <Route path="/blog" exact component={BlogsPage}></Route>
+                <Route path="/creep-dodge" exact component={CreepDodgePage}></Route>  
+                <Route path="/ca" exact component={CAPage}></Route>  
               </Container>
             </Router>
           </div>
